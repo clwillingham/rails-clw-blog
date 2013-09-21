@@ -1,0 +1,15 @@
+<article class="hentry" id="post" data-post-id="<%= @post.id %>">
+  <div id="title" class="entry-header" contenteditable="true">
+    <%== @post.title %>
+  </div>
+
+  <div id="body" class="entry-content" contenteditable="true">
+    <%== @post.body %>
+  </div>
+</article>
+
+<article class="hentry">
+  <div class="entry-content">
+    <button id="editBtn">Save</button>
+  </div>
+</article>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Chris's Programs and Projects</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag params[:controller] %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="home page page-id-2 page-template-default custom-background mp6 highlander-enabled highlander-light">
+
+<!-- Include the view file for the current controller/route -->
+    <div id="page" class="hfeed site">
+      <div id="masthead-wrap" >
+        <header id="masthead" class="site-header" role="banner">
+          <hgroup>
+            <h1 class="site-title">
+              <a href="/" title="Home" rel="home">Chris's Programs and Projects</a>
+            </h1>
+            <h2 class="site-description">
+              <% currentPage = @page || @currentPage || Page.where(path: params[:path] || '').first %>
+              <% if currentPage != nil %>
+                <%= currentPage.title %>
+                  (<%= link_to 'Edit', edit_page_path(currentPage) %> | <%= link_to 'Delete', destroy_page_path(currentPage) %>)
+              <% end %>
+            </h2>
+            <input type="hidden" value="<%= currentPage.path || '' %>" id="pagePath">
+          </hgroup>
+          <nav role="navigation" class="site-navigation main-navigation">
+            <h1 class="assistive-text">Menu</h1>
+            <div class="assistive-text skip-link">
+              <a href="#content" title="Skip to content">Skip to content</a>
+            </div>
+            <div class="menu">
+              <ul>
+                <%  Page.each do |page| %>
+                    <li class="page_item"><%= link_to page.title, show_page_path(page.path) %> </li>
+                <% end %>
+                <li class="page_item"><a href="/pages/add">+</a> </li>
+              </ul>
+            </div>
+            <div class="clearfix"></div>
+          </nav>
+        </header>
+      </div>
+      <div id="main" class="site-main">
+        <div id="primary" class="content-area">
+          <div class="hentry-wrap">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

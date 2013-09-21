@@ -1,0 +1,25 @@
+<% @posts.each do |post| %>
+<article class="hentry">
+    <div class="entry-header">
+      <%== post.title %>
+      <div class="entry-meta">
+        <%= link_to 'Delete', destroy_post_path(post) %> |
+        <% if @currentPage.path != '' %>
+            <%= link_to 'Edit', edit_post_path(@currentPage.path, post), 'data-no-turbolink' => true %>
+        <% else %>
+            <%= link_to 'Edit', edit_root_post_path(post), 'data-no-turbolink' => true %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="entry-content">
+    <%== post.body %>
+    </div>
+</article>
+<% end %>
+
+<article class="hentry">
+  <div class="entry-content">
+    <%= link_to 'Create new post', url_for(controller: 'posts', action: 'new', path: @currentPage.path), "data-no-turbolink" => true %>
+  </div>
+</article>
