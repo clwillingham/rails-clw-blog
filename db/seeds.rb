@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+if Page.where(path: '') == 0
+  Page.create(
+      title: 'Home',
+      path: ''
+  )
+end
