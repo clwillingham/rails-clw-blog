@@ -7,7 +7,7 @@ RubyClwBlog::Application.routes.draw do
   # root 'welcome#index'
   root 'pages#index'
 
-  get '/pages/add' => "pages#add"
+  get '/pages/add' => "pages#add", as: 'add_page'
   get '/pages/:id/edit' => "pages#edit", as: 'edit_page'
   get '/pages/:id/destroy' => 'pages#destroy', as: 'destroy_page'
   get '/:path' => "pages#show", as: 'show_page'

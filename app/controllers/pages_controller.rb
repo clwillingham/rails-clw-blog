@@ -32,7 +32,11 @@ class PagesController < ApplicationController
   end
 
   def show
-    @currentPage = Page.where(path: (params[:path] || '')).first
+    @currentPage = Page.where(path: (params[:path] || '')).first || nil
+    if @currentPage == nil
+      redirect_to '/pages/add'
+      return
+    end
     @posts = @currentPage.posts || []
     render 'pages/index'
   end

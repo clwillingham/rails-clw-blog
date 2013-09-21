@@ -20,12 +20,13 @@
             </h1>
             <h2 class="site-description">
               <% currentPage = @page || @currentPage || Page.where(path: params[:path] || '').first %>
-              <% if currentPage != nil %>
+              <% if Page.count > 0 && currentPage != nil %>
                 <%= currentPage.title %>
                   (<%= link_to 'Edit', edit_page_path(currentPage) %> | <%= link_to 'Delete', destroy_page_path(currentPage) %>)
+                  <input type="hidden" value="<%= currentPage.path || '' %>" id="pagePath">
               <% end %>
             </h2>
-            <input type="hidden" value="<%= currentPage.path || '' %>" id="pagePath">
+
           </hgroup>
           <nav role="navigation" class="site-navigation main-navigation">
             <h1 class="assistive-text">Menu</h1>
