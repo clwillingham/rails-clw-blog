@@ -41,7 +41,7 @@ class PagesController < ApplicationController
       redirect_to '/'
       return
     end
-    @posts = @currentPage.posts || []
+    @posts = @currentPage.posts.order_by(:created_at.desc) || []
     render 'pages/index'
   end
 

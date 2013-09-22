@@ -8,6 +8,7 @@ $(document).ready ->
     pagePath = $("#pagePath").val()
     post =
       title: $("#title").html()
+      show_date: $("#showDateBox").is(':checked')
       body: $("#body").html()
     $.post("/" + pagePath, post, (data) ->
       window.location '/'+pagePath
@@ -18,6 +19,7 @@ $(document).ready ->
     url = if (pagePath == '') then "#{$('#post').data('post-id')}" else "/#{ pagePath }/#{$('#post').data('post-id')}"
     post =
       title: $("#title").html()
+      show_date: $("#showDateBox").is(':checked')
       body: $("#body").html()
     $.ajax(url,
       data: post

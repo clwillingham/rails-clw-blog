@@ -2,7 +2,10 @@
   <div id="title" class="entry-header" contenteditable="true">
     <%== @post.title %>
   </div>
-
+  <div class="entry-content">
+    <input id="showDateBox" type="checkbox" <% if @post.show_date? %> checked <% end %> >
+    <label for="showDateBox">Show Creation Date</label>
+  </div>
   <div id="body" class="entry-content" contenteditable="true">
     <%== @post.body %>
   </div>

@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     page = Page.where(path: params[:path] || '').first
     @post = page.posts << Post.new(
         title: params[:title],
+        show_date: params[:show_date],
         body: params[:body],
         user: current_user
     )
@@ -22,6 +23,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.title = params[:title]
     post.body = params[:body]
+    post.show_date = params[:show_date]
     post.save
     respond_to do |format|
       format.json {

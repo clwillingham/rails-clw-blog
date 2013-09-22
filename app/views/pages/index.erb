@@ -2,16 +2,25 @@
 <article class="hentry">
     <div class="entry-header">
       <%== post.title %>
-      <% if user_signed_in? %>
+
           <div class="entry-meta">
-            <%= link_to 'Delete', destroy_post_path(post) %> |
-            <% if @currentPage.path != '' %>
-                <%= link_to 'Edit', edit_post_path(@currentPage.path, post), 'data-no-turbolink' => true %>
-            <% else %>
-                <%= link_to 'Edit', edit_root_post_path(post), 'data-no-turbolink' => true %>
+            <% if post.show_date %>
+            <div>
+              Posted <%= time_ago_in_words post[:created_at] %> ago
+            </div>
+            <% end %>
+            <% if user_signed_in? %>
+            <div>
+              <%= link_to 'Delete', destroy_post_path(post) %> |
+              <% if @currentPage.path != '' %>
+                  <%= link_to 'Edit', edit_post_path(@currentPage.path, post), 'data-no-turbolink' => true %>
+              <% else %>
+                  <%= link_to 'Edit', edit_root_post_path(post), 'data-no-turbolink' => true %>
+              <% end %>
+            </div>
             <% end %>
           </div>
-      <% end %>
+
     </div>
 
     <div class="entry-content">
