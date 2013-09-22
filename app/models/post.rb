@@ -3,6 +3,7 @@ class Post
   include Mongoid::Timestamps
 
   belongs_to :page
+  belongs_to :user
   field :title, type: String
   field :body, type: String
 

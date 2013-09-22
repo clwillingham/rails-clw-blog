@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!
   def create
     page = Page.where(path: params[:path] || '').first
     @post = page.posts << Post.new(
         title: params[:title],
-        body: params[:body]
+        body: params[:body],
+        user: current_user
     )
     respond_to do |format|
       format.json {
