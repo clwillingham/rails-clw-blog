@@ -1,6 +1,10 @@
 <article class="hentry" id="post" data-post-id="<%= @post.id %>">
-  <div id="title" class="entry-header" contenteditable="true">
-    <%== @post.title %>
+  <div  class="entry-header">
+    <h1>
+      <div id="title" contenteditable="true">
+        <%= @post.title %>
+      </div>
+    </h1>
   </div>
   <div class="entry-content">
     <input id="showDateBox" type="checkbox" <% if @post.show_date? %> checked <% end %> >

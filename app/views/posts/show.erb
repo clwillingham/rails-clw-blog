@@ -1,0 +1,29 @@
+<article class="hentry">
+  <div class="entry-header">
+    <h1 class="entry-title">
+      <%= @post.title %>
+    </h1>
+    <div class="entry-meta">
+      <% if @post.show_date %>
+          <div>
+            Posted <%= time_ago_in_words @post[:created_at] %> ago
+          </div>
+      <% end %>
+      <% if user_signed_in? %>
+          <div>
+            <%= link_to 'Delete', destroy_post_path(@post) %> |
+            <% if @currentPage.path != '' %>
+                <%= link_to 'Edit', edit_post_path(@currentPage.path, @post), 'data-no-turbolink' => true %>
+            <% else %>
+                <%= link_to 'Edit', edit_root_post_path(@post), 'data-no-turbolink' => true %>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="entry-content">
+    <%== @post.body %>
+  </div>
+</article>

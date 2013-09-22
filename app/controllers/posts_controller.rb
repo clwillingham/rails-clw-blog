@@ -1,5 +1,11 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!
+
+  def show
+    @post = Post.find(params[:id])
+    @currentPage = Page.find_by(path: params[:path])
+  end
+
   def create
     page = Page.where(path: params[:path] || '').first
     @post = page.posts << Post.new(

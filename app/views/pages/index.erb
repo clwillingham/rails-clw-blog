@@ -1,7 +1,9 @@
 <% @posts.each do |post| %>
 <article class="hentry">
     <div class="entry-header">
-      <%== post.title %>
+          <h1 class="entry-title">
+            <%= link_to post.title, show_post_path(@currentPage.path, post.id) %>
+          </h1>
 
           <div class="entry-meta">
             <% if post.show_date %>

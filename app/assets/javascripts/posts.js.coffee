@@ -2,12 +2,17 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 console.log('JS LOADED');
+
+CKEDITOR.disableAutoInline = true;
+
+
 $(document).ready ->
+  CKEDITOR.inline('body')
   console.log 'JS LOADED'
   $("#publishBtn").on 'click', ->
     pagePath = $("#pagePath").val()
     post =
-      title: $("#title").html()
+      title: $("#title").val().replace(/\s/g,'').trim(),
       show_date: $("#showDateBox").is(':checked')
       body: $("#body").html()
     $.post("/" + pagePath, post, (data) ->
