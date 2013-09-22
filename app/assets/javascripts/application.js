@@ -14,7 +14,6 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require ckeditor/init
-//= require ckeditor/ckeditor
 //= require superhero/superhero
 //= require superhero/small-menu
 //= require sidekick

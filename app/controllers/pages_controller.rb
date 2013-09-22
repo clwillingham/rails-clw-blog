@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
   def create
     @page = Page.create(
         title: params[:title],
@@ -33,8 +34,11 @@ class PagesController < ApplicationController
 
   def show
     @currentPage = Page.where(path: (params[:path] || '')).first || nil
-    if @currentPage == nil
+    if @currentPage == nil && user_signed_in?
       redirect_to '/pages/add'
+      return
+    elsif !user_signed_in? && @currentPage == nil
+      redirect_to '/'
       return
     end
     @posts = @currentPage.posts || []

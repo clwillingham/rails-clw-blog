@@ -1,4 +1,5 @@
 RubyClwBlog::Application.routes.draw do
+  devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -7,24 +8,30 @@ RubyClwBlog::Application.routes.draw do
   # root 'welcome#index'
   root 'pages#index'
 
-  get '/pages/add' => "pages#add", as: 'add_page'
-  get '/pages/:id/edit' => "pages#edit", as: 'edit_page'
-  get '/pages/:id/destroy' => 'pages#destroy', as: 'destroy_page'
+  authenticated :user do
+    get '/pages/add' => "pages#add", as: 'add_page'
+    get '/pages/:id/edit' => "pages#edit", as: 'edit_page'
+    get '/pages/:id/destroy' => 'pages#destroy', as: 'destroy_page'
+    get '/:path/post/new' => 'posts#new', as: 'new_post'
+    get '/:path/:id/edit' => 'posts#edit', as: 'edit_post'
+    get '/:id/edit' => 'posts#edit', as: 'edit_root_post'
+    get '/post/:id/destroy' => 'posts#destroy', as: 'destroy_post'
+    get '/post/new' => 'posts#new', as: 'new_root_post'
+
+    put '/pages/:id' => 'pages#update', as: 'page_update'
+    put '/:path/:id' => 'posts#update'
+    put '/:id' => 'posts#update'
+
+    post '/:path' => 'posts#create'
+    post '/' => 'posts#create'
+    post '/pages/create' => 'pages#create'
+  end
   get '/:path' => "pages#show", as: 'show_page'
-  get '/:path/post/new' => 'posts#new', as: 'new_post'
-  get '/:path/:id/edit' => 'posts#edit', as: 'edit_post'
-  get '/:id/edit' => 'posts#edit', as: 'edit_root_post'
-  get '/post/:id/destroy' => 'posts#destroy', as: 'destroy_post'
-  get '/post/new' => 'posts#new', as: 'new_root_post'
-
-  put '/pages/:id' => 'pages#update', as: 'page_update'
-  put '/:path/:id' => 'posts#update'
-  put '/:id' => 'posts#update'
 
 
-  post '/:path' => 'posts#create'
-  post '/' => 'posts#create'
-  post '/pages/create' => 'pages#create'
+
+
+
 
 
 
