@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7416ad4d-8009-428c-ad20-02c3738a6a91" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/posts/show.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/posts/edit.erb" afterPath="$PROJECT_DIR$/app/views/posts/edit.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/index.erb" afterPath="$PROJECT_DIR$/app/views/pages/index.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/mongoid.yml" afterPath="$PROJECT_DIR$/config/mongoid.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/posts.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/posts.js.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/posts_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/posts_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/posts/new.erb" afterPath="$PROJECT_DIR$/app/views/posts/new.erb" />
     </list>
     <ignored path="ruby-clw-blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,10 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="show.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/posts/show.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="9" selection-start="117" selection-end="117" vertical-scroll-proportion="0.13793103" vertical-offset="0" max-vertical-offset="510">
+            <state line="4" column="9" selection-start="117" selection-end="117" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="510">
               <folding />
             </state>
           </provider>
@@ -67,7 +60,16 @@
       <file leaf-file-name="edit.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/posts/edit.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="44" selection-start="149" selection-end="149" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="405">
+            <state line="4" column="8" selection-start="159" selection-end="177" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="405">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/posts/new.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="15" selection-start="148" selection-end="148" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="435">
               <folding />
             </state>
           </provider>
@@ -93,15 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mongoid.yml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="mongoid.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/mongoid.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="11" selection-start="2647" selection-end="2647" vertical-scroll-proportion="0.0" vertical-offset="876" max-vertical-offset="1335">
-              <folding>
-                <marker date="1379886000979" expanded="true" signature="2636:2815" placeholder="production:" />
-                <marker date="1379886000979" expanded="true" signature="2650:2815" placeholder="sessions:" />
-                <marker date="1379886000979" expanded="true" signature="2664:2815" placeholder="default:" />
-              </folding>
+            <state line="83" column="15" selection-start="2795" selection-end="2795" vertical-scroll-proportion="0.8039216" vertical-offset="876" max-vertical-offset="1335">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,15 +108,6 @@
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/posts.js.coffee">
           <provider selected="true" editor-type-id="text-editor">
             <state line="14" column="55" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="schema.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/schema.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
               <folding />
             </state>
           </provider>
@@ -164,9 +153,7 @@
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/views/pages/edit.erb" />
         <option value="$PROJECT_DIR$/app/models/post.rb" />
-        <option value="$PROJECT_DIR$/app/views/posts/new.erb" />
         <option value="$PROJECT_DIR$/app/controllers/pages_controller.rb" />
-        <option value="$PROJECT_DIR$/config/mongoid.yml" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/posts_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/posts.js.coffee" />
@@ -174,6 +161,8 @@
         <option value="$PROJECT_DIR$/app/views/pages/index.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/posts/show.erb" />
+        <option value="$PROJECT_DIR$/config/mongoid.yml" />
+        <option value="$PROJECT_DIR$/app/views/posts/new.erb" />
       </list>
     </option>
   </component>
@@ -788,13 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/posts/new.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="51" selection-start="197" selection-end="197" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/edit.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="53" selection-start="423" selection-end="423" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="330">
@@ -830,17 +812,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/mongoid.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="11" selection-start="2647" selection-end="2647" vertical-scroll-proportion="0.0" vertical-offset="876" max-vertical-offset="1335">
-          <folding>
-            <marker date="1379886000979" expanded="true" signature="2636:2815" placeholder="production:" />
-            <marker date="1379886000979" expanded="true" signature="2650:2815" placeholder="sessions:" />
-            <marker date="1379886000979" expanded="true" signature="2664:2815" placeholder="default:" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/posts_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="52" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
@@ -862,20 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/posts/edit.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="44" selection-start="149" selection-end="149" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/index.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="32" selection-start="116" selection-end="116" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="675">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="30" selection-start="2051" selection-end="2051" vertical-scroll-proportion="-7.5" vertical-offset="390" max-vertical-offset="1035">
@@ -887,7 +844,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/posts/show.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="9" selection-start="117" selection-end="117" vertical-scroll-proportion="0.13793103" vertical-offset="0" max-vertical-offset="510">
+        <state line="4" column="9" selection-start="117" selection-end="117" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/index.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="32" selection-start="116" selection-end="116" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/posts/edit.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="8" selection-start="159" selection-end="177" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/posts/new.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="15" selection-start="148" selection-end="148" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mongoid.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="15" selection-start="2795" selection-end="2795" vertical-scroll-proportion="0.8039216" vertical-offset="876" max-vertical-offset="1335">
           <folding />
         </state>
       </provider>
