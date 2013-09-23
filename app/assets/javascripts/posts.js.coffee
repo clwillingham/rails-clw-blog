@@ -14,7 +14,7 @@ $(document).ready ->
     post =
       title: $("#title").val().replace(/\s/g,'').trim(),
       show_date: $("#showDateBox").is(':checked')
-      body: $("#body").html()
+      body: CKEDITOR.instances.body.getData()
     $.post("/" + pagePath, post, (data) ->
       window.location '/'+pagePath
     ).fail ->
@@ -25,7 +25,7 @@ $(document).ready ->
     post =
       title: $("#title").html()
       show_date: $("#showDateBox").is(':checked')
-      body: $("#body").html()
+      body: CKEDITOR.instances.body.getData()
     $.ajax(url,
       data: post
       processData: true
