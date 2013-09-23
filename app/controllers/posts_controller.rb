@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @currentPage = Page.find_by(path: params[:path])
+    @currentPage = Page.find_by(path: params[:path] || '')
   end
 
   def create

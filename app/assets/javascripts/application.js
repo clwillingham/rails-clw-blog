@@ -18,4 +18,3 @@
 //= require superhero/small-menu
 //= require sidekick
 //= require turbolinks
-

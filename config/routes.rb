@@ -26,8 +26,10 @@ RubyClwBlog::Application.routes.draw do
     post '/' => 'posts#create'
     post '/pages/create' => 'pages#create'
   end
+  get '/post/:id' => "posts#show", as: 'show_root_post'
   get '/:path' => "pages#show", as: 'show_page'
   get '/:path/:id' => "posts#show", as: 'show_post'
+
 
 
 
