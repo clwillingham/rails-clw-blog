@@ -80,5 +80,5 @@ production:
       database: clwillingham-blog
       hosts:
         - ds063297.mongolab.com:63297
-      username: admin
-      password: <%= ENV[MONGOID_PASSWORD] %>
+      username: <%= ENV['MONGOID_USER'] %>
+      password: <%= ENV['MONGOID_PASSWORD'] %>
