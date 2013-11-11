@@ -1,16 +1,15 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!
-
+  before_action :set_post, :only => [:show, :edit, :update, :create]
+  load_and_authorize_resource
   def show
     @post = Post.find(params[:id])
-    @currentPage = Page.find_by(path: params[:path] || '')
+    @current_page = Page.find_by(path: params[:path] || '')
   end
 
   def create
-    page = Page.where(path: params[:path] || '').first
-    @post = page.posts << Post.new(
+    @post = @page.posts << Post.new(
         title: params[:title],
-        show_date: params[:show_date],
+        show_date: params[:show_date] == 'true',
         body: params[:body],
         user: current_user
     )
@@ -29,7 +28,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.title = params[:title]
     post.body = params[:body]
-    post.show_date = params[:show_date]
+    post.show_date = params[:show_date] == 'true'
     post.save
     respond_to do |format|
       format.json {
@@ -43,6 +42,22 @@ class PostsController < ApplicationController
     post = Post.find(params[:id]).destroy
 
     puts 'POST: '+ params[:id]
-    redirect_to '/'
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.json { head :no_content }
+    end
   end
+
+  private
+
+  def set_post
+    if params[:page_id] != nil
+      @page = Page.find(params[:page_id])
+    end
+    if params[:id] != nil
+      @post = Post.find(params[:id])
+    end
+
+  end
+
 end

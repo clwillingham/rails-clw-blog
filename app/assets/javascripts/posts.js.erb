@@ -1,0 +1,43 @@
+console.log('JS LOADED');
+
+CKEDITOR.disableAutoInline = true;
+
+$(document).ready(function() {
+    CKEDITOR.inline('body');
+    console.log('JS LOADED');
+    var pagePath = $("#pagePath").val();
+    var pageId = $("#pageId").val();
+    $("#publishBtn").on('click', function() {
+        var post;
+
+        post = {
+            title: $("#title").html().replace(/\s/g, '').trim(),
+            show_date: $("#showDateBox").is(':checked'),
+            body: CKEDITOR.instances.body.getData()
+        };
+        return $.post('/'+pageId+'/posts', post, function(data) {
+            return window.location = '/' + pagePath;
+        }).fail(function() {
+                    return alert("ERROR");
+                });
+    });
+    return $("#editBtn").on('click', function() {
+        var pagePath, post, url;
+        pagePath = $("#pagePath").val();
+        url = '/'+pageId+'/posts/'+($('#post').data('post-id'));//pageId === '' ? "" + ($('#post').data('post-id')) : "/posts" + pageId + "/" + ($('#post').data('post-id'));
+        post = {
+            title: $("#title").html(),
+            show_date: $("#showDateBox").is(':checked'),
+            body: CKEDITOR.instances.body.getData()
+        };
+        return $.ajax(url, {
+            data: post,
+            processData: true,
+            type: "put"
+        }).done(function() {
+                    return window.location = '/' + pagePath;
+                }).fail(function(jqXhr, status, err) {
+                    return alert('ERROR, failed to save post: ' + err);
+                });
+    });
+});

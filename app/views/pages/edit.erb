@@ -8,7 +8,7 @@
     <!--<input name="path" placeholder="Enter path" type="text">-->
     <!--<input type="submit">-->
     <!--</form>-->
-    <%= form_tag("/pages/#{params[:id]}", method: "put") do %>
+    <%= form_tag(page_path, method: "put") do %>
         <%= text_field_tag(:title, @page.title, placeholder: 'Enter new page name') %>
         <%= text_field_tag(:path, @page.path, placeholder: 'Enter path') %>
         <%= submit_tag("Submit") %>

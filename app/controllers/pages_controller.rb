@@ -1,11 +1,12 @@
 class PagesController < ApplicationController
-
+  before_action :set_page, only: [:edit, :update, :destroy, :show, :index]
+  load_and_authorize_resource
   def create
     @page = Page.create(
         title: params[:title],
         path: params[:path]
     )
-    redirect_to show_page_path @page.path
+    redirect_to page_path @page.path
   end
 
   def index
@@ -13,7 +14,6 @@ class PagesController < ApplicationController
   end
 
   def edit
-    @page = Page.find(params[:id])
     params[:path] = @page.path
   end
 
@@ -29,20 +29,27 @@ class PagesController < ApplicationController
     page.title = params[:title]
     page.path = params[:path]
     page.save
-    redirect_to show_page_path(page.path)
+    redirect_to page_path(page.path)
   end
 
   def show
-    @currentPage = Page.where(path: (params[:path] || '')).first || nil
-    if @currentPage == nil && user_signed_in?
+    #@currentPage = Page.where(path: (params[:path] || '')).first || nil
+    if @page == nil && user_signed_in?
       redirect_to '/pages/add'
       return
-    elsif !user_signed_in? && @currentPage == nil
+    elsif !user_signed_in? && @page == nil
       redirect_to '/'
       return
     end
-    @posts = @currentPage.posts.order_by(:created_at.desc) || []
+    @posts = @page.posts.order_by(:created_at.desc) || []
     render 'pages/index'
+  end
+
+  private
+
+  def set_page
+    #Page.find_or_create_by(path: '')
+    @page = Page.where(path: (params[:id] || '')).first || Page.find(params[:id])
   end
 
 end

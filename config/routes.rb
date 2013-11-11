@@ -8,27 +8,33 @@ RubyClwBlog::Application.routes.draw do
   # root 'welcome#index'
   root 'pages#index'
 
-  authenticated :user do
-    get '/pages/add' => "pages#add", as: 'add_page'
-    get '/pages/:id/edit' => "pages#edit", as: 'edit_page'
-    get '/pages/:id/destroy' => 'pages#destroy', as: 'destroy_page'
-    get '/:path/post/new' => 'posts#new', as: 'new_post'
-    get '/:path/:id/edit' => 'posts#edit', as: 'edit_post'
-    get '/:id/edit' => 'posts#edit', as: 'edit_root_post'
-    get '/post/:id/destroy' => 'posts#destroy', as: 'destroy_post'
-    get '/post/new' => 'posts#new', as: 'new_root_post'
-
-    put '/pages/:id' => 'pages#update', as: 'page_update'
-    put '/:path/:id' => 'posts#update'
-    put '/:id' => 'posts#update'
-
-    post '/:path' => 'posts#create'
-    post '/' => 'posts#create'
-    post '/pages/create' => 'pages#create'
+  resources :pages, path: '' do
+    resources :posts
   end
-  get '/post/:id' => "posts#show", as: 'show_root_post'
-  get '/:path' => "pages#show", as: 'show_page'
-  get '/:path/:id' => "posts#show", as: 'show_post'
+
+  get '/pages/add' => 'pages#add'
+
+  #authenticated :user do
+  #  get '/pages/add' => "pages#add", as: 'add_page'
+  #  get '/pages/:id/edit' => "pages#edit", as: 'edit_page'
+  #  get '/pages/:id/destroy' => 'pages#destroy', as: 'destroy_page'
+  #  get '/:path/post/new' => 'posts#new', as: 'new_post'
+  #  get '/:path/:id/edit' => 'posts#edit', as: 'edit_post'
+  #  get '/:id/edit' => 'posts#edit', as: 'edit_root_post'
+  #  get '/post/:id/destroy' => 'posts#destroy', as: 'destroy_post'
+  #  get '/post/new' => 'posts#new', as: 'new_root_post'
+  #
+  #  put '/pages/:id' => 'pages#update', as: 'page_update'
+  #  put '/:path/:id' => 'posts#update'
+  #  put '/:id' => 'posts#update'
+  #
+  #  post '/:path' => 'posts#create'
+  #  post '/' => 'posts#create'
+  #  post '/pages/create' => 'pages#create'
+  #end
+  #get '/post/:id' => "posts#show", as: 'show_root_post'
+  #get '/:path' => "pages#show", as: 'show_page'
+  #get '/:path/:id' => "posts#show", as: 'show_post'
 
 
 

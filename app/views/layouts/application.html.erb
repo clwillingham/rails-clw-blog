@@ -20,13 +20,14 @@
               <a href="/" title="Home" rel="home">Chris's Programs and Projects</a>
             </h1>
             <h2 class="site-description">
-              <% currentPage = @page || @currentPage || Page.where(path: params[:path] || '').first %>
+              <% currentPage = @page || @current_page %>
               <% if (Page.count > 0 && currentPage != nil) %>
                 <%= currentPage.title %>
                   <% if user_signed_in? %>
-                  (<%= link_to 'Edit', edit_page_path(currentPage) %> | <%= link_to 'Delete', destroy_page_path(currentPage) %>)
+                  (<%= link_to 'Edit', edit_page_path(currentPage) %> | <%= link_to 'Delete', page_path(currentPage), method: :delete %>)
                   <% end %>
                   <input type="hidden" value="<%= currentPage.path || '' %>" id="pagePath">
+                  <input type="hidden" value="<%= currentPage.id || '' %>" id="pageId">
               <% end %>
             </h2>
 
@@ -39,7 +40,7 @@
             <div class="menu">
               <ul>
                 <%  Page.each do |page| %>
-                    <li class="page_item"><%= link_to page.title, show_page_path(page.path) %> </li>
+                    <li class="page_item"><%= link_to page.title, page_path(page.path) %> </li>
                 <% end %>
                 <% if user_signed_in? %>
                     <li class="page_item"><%= link_to 'Log Out', destroy_user_session_path(), method: 'delete' %></li>
@@ -54,6 +55,14 @@
       <div id="main" class="site-main">
         <div id="primary" class="content-area">
           <div class="hentry-wrap">
+            <% if notice || alert %>
+            <article class="hentry">
+              <div class="entry-content">
+                <p class="notice"><%= notice %></p>
+                <p class="alert"><%= alert %></p>
+              </div>
+            </article>
+            <% end %>
             <%= yield %>
           </div>
         </div>
